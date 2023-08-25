@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  color: #333;
+  background-image: linear-gradient(to top left, #e2e7e8 0%, #f1f4f6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+}
+
+/* Common styles for all buttons (images) */
+.btn {
+  margin: 0 10px; /* Adds some space between the buttons */
+  cursor: pointer;
+  border: none;
+  width: 100px; /* Adjust as per your image dimensions */
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.1); /* Optional: Slight zoom effect on hover */
+}
+
+/* Individual styles based on choice */
+.btn[data-choice="rock"] {
+  left: 30%;
+}
+
+.btn[data-choice="paper"] {
+  left: 50%;
+}
+
+.btn[data-choice="scissors"] {
+  left: 70%;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  border: 2px solid #333;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  margin-top: 20px;
+}
+
+.player-score,
+.computer-score {
+  text-align: center;
+  margin-right: 20px;
+}
+
+.computer-score {
+  margin-right: 0; /* Removes the added space from the computer score box */
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+#winning-message {
+  margin-top: 20px;
+  padding: 10px;
+  border: 2px solid #333;
+  background-color: #f9f9f9;
+  font-weight: bold;
+  text-align: center;
+  width: 200px;
+}
