@@ -1,25 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
-html {
-  font-size: 62.5%;
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Nunito", sans-serif;
   font-weight: 400;
   height: 100vh;
   color: #333;
-  background-image: linear-gradient(to top left, #e2e7e8 0%, #f1f4f6 100%);
+  background-image: linear-gradient(to top right, #009688, #005f77);
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Changed from center to flex-start */
   justify-content: center;
+  padding-top: 80px; /* Increased padding to shift it down */
 }
 
 .container {
@@ -31,76 +19,114 @@ body {
 .choices {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px; /* Add some space */
 }
 
-/* Common styles for all buttons (images) */
 .btn {
-  margin: 0 10px; /* Adds some space between the buttons */
+  margin: 0 20px; /* Increase space between the buttons */
   cursor: pointer;
   border: none;
-  width: 100px; /* Adjust as per your image dimensions */
+  width: 130px; /* Increase width */
   height: auto;
   transition: transform 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.1); /* Optional: Slight zoom effect on hover */
-}
-
-/* Individual styles based on choice */
-.btn[data-choice="rock"] {
-  left: 30%;
-}
-
-.btn[data-choice="paper"] {
-  left: 50%;
-}
-
-.btn[data-choice="scissors"] {
-  left: 70%;
 }
 
 .scoreboard {
   display: flex;
   justify-content: space-around;
-  margin: 20px 0;
+  margin: 15px 0; /* Reduced margin */
   border: 2px solid #333;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 5px; /* Reduced padding */
+  border-radius: 8px;
   background-color: #f4f4f4;
-  margin-top: 20px;
+  margin-top: 15px; /* Reduced margin-top */
+  width: 80%; /* Adjust width if necessary */
 }
 
 .player-score,
 .computer-score {
   text-align: center;
-  margin-right: 20px;
-}
-
-.computer-score {
-  margin-right: 0; /* Removes the added space from the computer score box */
+  margin-right: 15px; /* Reduced margin-right */
 }
 
 h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
+  font-size: 1.2em; /* Reduced font-size */
+  margin-bottom: 8px; /* Reduced margin-bottom */
 }
 
 p {
-  font-size: 2em;
-  font-weight: bold;
+  font-size: 1.8em; /* Reduced font-size */
 }
 
 .hidden {
   display: none;
 }
 
-#winning-message {
-  margin-top: 20px;
-  padding: 10px;
+#newGame.visible {
+  display: block;
+}
+
+#newGame.hidden {
+  display: none;
+}
+
+#winning-message-match,
+#winning-message-round {
+  margin-top: 70px; /* Increase margin */
+  padding: 20px; /* Increase padding */
   border: 2px solid #333;
   background-color: #f9f9f9;
   font-weight: bold;
+  font-size: x-large; /* Enlarged the text */
   text-align: center;
-  width: 200px;
+  width: 400px; /* Wider box */
+}
+
+#newGame {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px; /* Increase margin */
+  margin-bottom: 50px;
+  padding: 15px; /* Increase padding */
+  border: 2px solid #333;
+  background-color: #ff6b6b;
+  font-weight: bold;
+  font-size: x-large; /* Enlarged the text */
+  text-align: center;
+  width: 350px; /* Wider button */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#newGame:hover {
+  background-color: #ff5252;
+}
+
+.choice-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%; /* Adjust width if necessary */
+  margin-top: 20px; /* Space above the choices container */
+  margin-left: auto; /* These two lines center the div */
+  margin-right: auto;
+}
+
+.choice {
+  flex: 0 0 180px; /* This sets the width. Decrease this value if you want them to be narrower. */
+  height: 60px; /* Adjust the height as per your requirements */
+  margin: 0 10px;
+  border: 1px solid #333;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  display: flex;
+  align-items: center; /* Vertically centers text/content inside the div */
+  justify-content: center; /* Horizontally centers text/content inside the div */
+  font-size: 1.4em; /* Adjust the font size so the text fits and is readable */
+}
+
+#computer-choice {
+  margin-left: 2%; /* Spacing between the player and computer choices */
 }

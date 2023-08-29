@@ -7,30 +7,55 @@
     <link rel="stylesheet" href="style.css" />
     <title>Rock Paper Scissors</title>
   </head>
+
   <body>
     <main>
+      <button class="btn hidden" id="newGame">New game</button>
       <div class="container">
         <div class="choices">
-            <img class="btn" src="rock.png" alt="Rock" data-choice="rock" />
-            <img class="btn" src="paper.png" alt="Paper" data-choice="paper" />
-            <img class="btn" src="scissors.png" alt="Scissors" data-choice="scissors" />
+          <img
+            class="btn choice-btn"
+            src="rock.png"
+            alt="Rock"
+            data-choice="rock"
+          />
+          <img
+            class="btn choice-btn"
+            src="paper.png"
+            alt="Paper"
+            data-choice="paper"
+          />
+          <img
+            class="btn choice-btn"
+            src="scissors.png"
+            alt="Scissors"
+            data-choice="scissors"
+          />
         </div>
-        
+
         <div class="scoreboard">
-            <div class="player-score">
-                <h2>Player</h2>
-                <p id="playerScore">0</p>
-            </div>
-            
-            <div class="computer-score">
-                <h2>Computer</h2>
-                <p id="computerScore">0</p>
-            </div>
+          <div class="player-score">
+            <h2>Player</h2>
+            <p id="playerScore">0</p>
+          </div>
+
+          <div class="computer-score">
+            <h2>Computer</h2>
+            <p id="computerScore">0</p>
+          </div>
         </div>
-        <div id="winning-message" class="hidden">
+        <div class="choice-display">
+          <div id="player-choice" class="hidden"></div>
+          <div id="computer-choice" class="hidden"></div>
+        </div>
+        <div id="winning-message-round" class="hidden">
           <p></p>
-    </div>
-      </main>
+        </div>
+        <!-- Fixed the missing closing tag here -->
+        <div id="winning-message-match" class="hidden">
+          <p></p>
+        </div>
+      </div>
     </main>
     <script src="script.js"></script>
   </body>
