@@ -147,3 +147,42 @@ const playRound = function (playerChoice) {
     return 2;
   }
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Function to push data to the data layer
+  function pushWinnerToDataLayer(winner) {
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      event: "gameResult",
+      winner: winner,
+    });
+  }
+
+  // Select the target node
+  var targetNode = document.getElementById("winning-message-match");
+
+  // Options for the observer (which mutations to observe)
+  var config = { attributes: false, childList: true, subtree: false };
+
+  // Callback function to execute when mutations are observed
+  var callback = function (mutationsList) {
+    for (var mutation of mutationsList) {
+      if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
+        var winnerText = targetNode.textContent.trim();
+        if (winnerText === "Computer wins the match!") {
+          console.log("Computer pushed to dl");
+          pushWinnerToDataLayer("Computer");
+        } else if (winnerText === "Player wins the match!") {
+          console.log("Player pushed to dl");
+          pushWinnerToDataLayer("Player");
+        }
+      }
+    }
+  };
+
+  // Create an instance of the observer
+  var observer = new MutationObserver(callback);
+
+  // Start observing the target node for configured mutations
+  observer.observe(targetNode, config);
+});
