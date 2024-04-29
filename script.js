@@ -153,7 +153,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function pushWinnerToDataLayer(winner) {
     window.dataLayer = window.dataLayer || [];
     dataLayer.push({
-      gameResult: winner,
+      event: "gameResult",
+      winner: winner,
     });
   }
 
