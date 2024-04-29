@@ -153,8 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function pushWinnerToDataLayer(winner) {
     window.dataLayer = window.dataLayer || [];
     dataLayer.push({
-      event: "gameResult",
-      winner: winner,
+      gameResult: winner,
     });
   }
 
@@ -170,10 +169,8 @@ document.addEventListener("DOMContentLoaded", function () {
       if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
         var winnerText = targetNode.textContent.trim();
         if (winnerText === "Computer wins the match!") {
-          console.log("Computer pushed to dl");
           pushWinnerToDataLayer("Computer");
         } else if (winnerText === "Player wins the match!") {
-          console.log("Player pushed to dl");
           pushWinnerToDataLayer("Player");
         }
       }
